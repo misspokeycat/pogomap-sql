@@ -2,15 +2,16 @@
 # -*- coding: utf-8 -*-
 
 import logging
-from peewee import Model, SqliteDatabase, InsertQuery, IntegerField,\
+from peewee import Model, MySQLDatabase, InsertQuery, IntegerField,\
                    CharField, FloatField, BooleanField, DateTimeField
+from playhouse.db_url import connect
 from datetime import datetime
 from base64 import b64encode
 
 from .utils import get_pokemon_name
 
-
-db = SqliteDatabase('pogom.db')
+db = connect("mysql://pokemongo:p0k3mon!@exetxstate.com/pokemongo" or 'sqlite:///pogom.db')
+#db = SqliteDatabase('pogom.db')
 log = logging.getLogger(__name__)
 
 
